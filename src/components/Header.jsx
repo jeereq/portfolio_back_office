@@ -1,28 +1,14 @@
-import { Data } from "../data/dataHeader";
-import { Link } from "react-router-dom";
-export default function Header() {
+import { NavLink } from "react-router-dom";
+const Header = () => {
 	return (
-		<>
-			<header>
-				<div className="top">
-					<div className="logo">
-						Gold <span>Vision</span>
-					</div>
-				</div>
-				<div className="bottom">
-					<nav>
-						<ul>
-							{Data.map((lien, index) => {
-								return (
-									<li key={index}>
-										<Link to={`/${lien}`}>{lien}</Link>
-									</li>
-								);
-							})}
-						</ul>
-					</nav>
-				</div>
-			</header>
-		</>
+		<header>
+			<ul>
+				<NavLink to="/">update</NavLink>
+				<NavLink to="/post">post</NavLink>
+			</ul>
+			<h1>CMS</h1>
+		</header>
 	);
-}
+};
+
+export default Header;

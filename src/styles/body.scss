@@ -1,0 +1,344 @@
+body {
+	background-color: rgb(4, 18, 22);
+	font-variant: small-caps;
+	color: white;
+	#root {
+		height: 100vh;
+		width: 100%;
+		padding: 40px 20px;
+		header {
+			display: flex;
+			justify-content: space-between;
+			background: linear-gradient(-45deg, white 50%, rgb(4, 18, 22) 50%);
+			font-size: 1.25em;
+			border-radius: 2px;
+			ul {
+				display: flex;
+				justify-content: space-around;
+				width: 50%;
+				padding: 15px;
+				a {
+					text-decoration: none;
+					color: white;
+					&.active,
+					&:hover {
+						border-bottom: 1px solid white;
+					}
+				}
+			}
+			h1 {
+				display: flex;
+				padding-right: 10px;
+				color: greenyellow;
+			}
+		}
+		main {
+			#Update {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-evenly;
+				margin-top: 20px;
+				padding: 15px;
+				background: linear-gradient(
+					-45deg,
+					rgb(61, 61, 61),
+					rgb(4, 18, 22) 98%
+				);
+				.left {
+					position: absolute;
+					left: 30px;
+					top: 130px;
+					.Post.Card {
+						position: relative;
+						height: 200px;
+						width: 200px;
+						margin-left: 0;
+						border: 1px solid white;
+						background-color: rgb(4, 18, 22);
+						border-radius: 5px;
+						&::after {
+							content: "";
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							z-index: 1;
+							height: 50px;
+							width: 3px;
+							transform: translate(0, -50%);
+							border-radius: 5px;
+							background-color: greenyellow;
+						}
+						&::before {
+							content: "";
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							z-index: 1;
+							height: 3px;
+							width: 50px;
+							transform: translate(-50%, 0);
+							border-radius: 5px;
+							background-color: greenyellow;
+						}
+						&:hover {
+							transform: scale(1.025);
+							box-shadow: 0 0 20px white;
+							&::before,
+							&::after {
+								background-color: white;
+							}
+						}
+					}
+				}
+				.Card {
+					display: flex;
+					min-height: 200px;
+					width: 400px;
+					margin: 10px;
+					padding: 10px;
+					background-color: rgb(4, 18, 22);
+					border-radius: 5px;
+					box-shadow: 0 0 20px transparent;
+					transition: 0.5s;
+					.image {
+						height: 100%;
+						width: 50%;
+						img {
+							height: 100%;
+							width: 100%;
+							object-fit: cover;
+						}
+					}
+					.text {
+						width: 50%;
+						border-left: 5px solid rgb(4, 18, 22);
+						.btn {
+							padding: 10px;
+							margin: 5px 0;
+							color: white;
+							width: max-content;
+							font-weight: 700;
+							border-top-right-radius: 5px;
+							border-bottom-right-radius: 5px;
+							background-color: white;
+							&.title {
+								width: 100%;
+								color: rgb(4, 18, 22);
+								border-top-right-radius: 0px;
+								border-bottom-right-radius: 0px;
+							}
+							&.update {
+								background-color: transparent;
+								border: 1px solid white;
+							}
+							&.delete {
+								background-color: transparent;
+								border: 1px solid white;
+							}
+							&.show {
+								background-color: transparent;
+								border: 1px solid white;
+							}
+							&.update:hover,
+							&.delete:hover,
+							&.show:hover {
+								border-radius: 5px;
+								box-shadow: 0 0 10px rgb(4, 18, 22);
+								transform: scaleX(1.05);
+							}
+							&.update:hover {
+								border: 1px solid greenyellow;
+								box-shadow: 0 0 10px greenyellow;
+							}
+							&.show:hover {
+								border: 1px solid blue;
+								box-shadow: 0 0 10px blue;
+							}
+							&.delete:hover {
+								border: 1px solid red;
+								box-shadow: 0 0 10px red;
+							}
+						}
+					}
+					&:hover {
+						transform: scale(1.025);
+						box-shadow: 0 0 20px white;
+					}
+					&:nth-of-type(1) {
+						margin-left: 150px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.Portails {
+	position: fixed;
+	top: 0;
+	z-index: 5;
+	height: 100vh;
+	width: 100vw;
+	padding: 20px;
+	background-color: rgba(4, 18, 22, 0.95);
+	.Croix {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		height: 50px;
+		width: 50px;
+		background-color: red;
+	}
+	&.Details {
+		background-color: rgba(4, 18, 22, 0.9);
+	}
+	.view {
+		height: 100%;
+		width: 100%;
+		padding: 10px;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		box-shadow: 0 0 10px rgb(61, 61, 61);
+		.image {
+			height: 50%;
+			width: 50%;
+			img {
+				height: 100%;
+				width: 100%;
+				object-fit: cover;
+			}
+		}
+
+		.details {
+			height: 50%;
+			width: 50%;
+			.block {
+				margin-left: 20px;
+				padding-bottom: 10px;
+				border-bottom: 1px solid white;
+				span {
+					font-weight: bolder;
+					color: blue;
+					font-size: 1.2em;
+				}
+			}
+		}
+		.resume {
+			width: 100%;
+			padding: 10px;
+			padding-top: 20px;
+			background: linear-gradient(
+				-45deg,
+				rgba(255, 255, 255, 0.829),
+				transparent
+			);
+			p {
+				height: 100%;
+				padding: 20px;
+				padding-left: 50px;
+				color: rgb(4, 18, 22);
+
+				span {
+					font-weight: bolder;
+					color: blue;
+					font-size: 1.2em;
+				}
+				&:nth-of-type(1) {
+					border-bottom: 1px solid white;
+				}
+			}
+		}
+	}
+}
+.form_update {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	overflow-y: scroll;
+
+	.image {
+		width: 40%;
+		height: 40%;
+		margin: auto;
+		img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+	form {
+		width: 100%;
+		input,
+		button {
+			width: 70%;
+			padding: 10px;
+			margin: 5px;
+			margin-left: 15%;
+			border: 1px solid white;
+			background-color: transparent;
+			color: white;
+			transition: 0.5s;
+			&:focus,
+			&:hover {
+				outline: none;
+				border: 2px solid greenyellow;
+				border-radius: 5px;
+				.plus {
+					transform: scale(1.025);
+					box-shadow: 0 0 20px greenyellow;
+					&::before,
+					&::after {
+						background-color: greenyellow;
+					}
+				}
+			}
+		}
+	}
+}
+.plus {
+	position: relative;
+	height: 45px;
+	width: 45px;
+	margin-left: 0;
+	border: 1px solid white;
+	background-color: rgb(4, 18, 22);
+	border-radius: 5px;
+	&::after {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		z-index: 1;
+		height: 10px;
+		width: 2px;
+		transform: translate(0, -50%);
+		border-radius: 5px;
+		background-color: red;
+	}
+	&::before {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		z-index: 1;
+		height: 2px;
+		width: 10px;
+		transform: translate(-50%, 0);
+		border-radius: 5px;
+		background-color: red;
+	}
+	&:hover {
+		transform: scale(1.025);
+		box-shadow: 0 0 20px white;
+		&::before,
+		&::after {
+			background-color: white;
+		}
+	}
+}
+main {
+	height: 100%;
+}
