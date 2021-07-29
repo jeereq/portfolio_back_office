@@ -18,7 +18,6 @@ const Post = ({ dataWorks, setDataWorks }) => {
 				headers: {
 					"Content-Type": "application/json;charset=utf-8"
 				},
-
 				body: JSON.stringify(works)
 			})
 				.then((res) => {
