@@ -13,7 +13,7 @@ const Post = ({ dataWorks, setDataWorks }) => {
 		setDataWorks([...dataWorks, works]);
 
 		(async () => {
-			await fetch("http://localhost:3000/admin/works/post", {
+			await fetch(`http://${process.env.REACT_API_KEY_ID}/admin/works/post`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json;charset=utf-8"
@@ -25,7 +25,6 @@ const Post = ({ dataWorks, setDataWorks }) => {
 					return res.json();
 				})
 				.then((data) => {
-					console.log(data);
 					alert("send");
 					e.target.reset();
 				});

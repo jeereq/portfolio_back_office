@@ -18,7 +18,7 @@ const App = () => {
 
 	useEffect(() => {
 		(async () => {
-			const db = await fetch("http://localhost:4000/works");
+			const db = await fetch(`http://${process.env.REACT_API_KEY_ID}/works`);
 			const dbJson = await db.json();
 			setDataWorks(dbJson);
 		})();
@@ -26,13 +26,16 @@ const App = () => {
 
 	const DeleteItem = (id) => {
 		(async () => {
-			await fetch("http://localhost:4000/admin/works/delete", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json;charset=utf-8"
-				},
-				body: JSON.stringify({ id: id })
-			}).then((res) => {
+			await fetch(
+				`http://http://${process.env.REACT_API_KEY_ID}/admin/works/delete`,
+				{
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json;charset=utf-8"
+					},
+					body: JSON.stringify({ id: id })
+				}
+			).then((res) => {
 				const removeData = dataWorks.filter((item) => +item.id !== +id);
 				setDataWorks(removeData);
 				return res.json();
