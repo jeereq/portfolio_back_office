@@ -16,7 +16,7 @@ const useUpdateForm = (
 	const submit = (e) => {
 		e.preventDefault();
 		(async () => {
-			await fetch("http://localhost:3000/admin/works/update", {
+			await fetch(`${process.env.REACT_API_KEY_ID}/admin/works/update`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json;charset=utf-8"
