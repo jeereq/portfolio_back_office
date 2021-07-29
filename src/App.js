@@ -26,16 +26,13 @@ const App = () => {
 
 	const DeleteItem = (id) => {
 		(async () => {
-			await fetch(
-				`http://http://${process.env.REACT_API_KEY_ID}/admin/works/delete`,
-				{
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json;charset=utf-8"
-					},
-					body: JSON.stringify({ id: id })
-				}
-			).then((res) => {
+			await fetch(`http://${process.env.REACT_API_KEY_ID}/admin/works/delete`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json;charset=utf-8"
+				},
+				body: JSON.stringify({ id: id })
+			}).then((res) => {
 				const removeData = dataWorks.filter((item) => +item.id !== +id);
 				setDataWorks(removeData);
 				return res.json();
