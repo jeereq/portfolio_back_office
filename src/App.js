@@ -48,7 +48,7 @@ const App = () => {
 					<Route path="/post">
 						<Post dataWorks={dataWorks} setDataWorks={setDataWorks} />
 					</Route>
-					<Route path="/">
+					<Route exact path="/">
 						<Update
 							setEtat={setEtat}
 							Delete={DeleteItem}
