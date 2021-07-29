@@ -13,7 +13,7 @@ const Post = ({ dataWorks, setDataWorks }) => {
 		setDataWorks([...dataWorks, works]);
 
 		(async () => {
-			await fetch(`http://${process.env.REACT_API_KEY_ID}/admin/works/post`, {
+			await fetch(`${process.env.REACT_API_KEY_ID}/admin/works/post`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json;charset=utf-8"
